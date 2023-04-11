@@ -1,10 +1,15 @@
 import { Header } from "@/components/Header";
 import { Pagination } from "@/components/Pagination";
 import { SideBar } from "@/components/Sidebar";
-import { Box, Button, Checkbox, Flex, Heading, Icon, Table, Tbody, Td, Text, Th, Thead, Tr } from "@chakra-ui/react";
+import { Box, Button, Checkbox, Flex, Heading, Icon, Table, Tbody, Td, Text, Th, Thead, Tr, useBreakpointValue } from "@chakra-ui/react";
 import { RiAddLine, RiPencilLine } from "react-icons/ri";
 
 export default function UserList() {
+    const isWideVersion = useBreakpointValue({
+        base: false,
+        lg: true
+    })
+
     return (
         <Box>
             <Header />
@@ -13,7 +18,7 @@ export default function UserList() {
                 my='6'
                 maxWidth={1400}
                 mx='auto'
-                px='6'
+                px={['4', '4', '6']}
             >
                 <SideBar />
 
@@ -51,7 +56,7 @@ export default function UserList() {
                         <Thead>
                             <Tr>
                                 <Th
-                                    px='6'
+                                    px={['4', '4', '6']}
                                     color='gray.300'
                                     width='8'
                                 >
@@ -62,15 +67,15 @@ export default function UserList() {
                                 <Th>
                                     Usuário
                                 </Th>
-                                <Th>
+                                {isWideVersion && (<Th>
                                     Data de cadastro
-                                </Th>
+                                </Th>)}
                                 <Th width='8'></Th>
                             </Tr>
                         </Thead>
                         <Tbody>
                             <Tr>
-                                <Td px='6'>
+                                <Td px={['4', '4', '6']}>
                                     <Checkbox
                                         colorScheme="pink"
                                     />
@@ -90,10 +95,10 @@ export default function UserList() {
                                         </Text>
                                     </Box>
                                 </Td>
-                                <Td>
+                                {isWideVersion && (<Td>
                                     04 de Abril 2021
-                                </Td>
-                                <Td>
+                                </Td>)}
+                                {/* <Td>
                                     <Button
                                         as='a'
                                         size='sm'
@@ -103,10 +108,10 @@ export default function UserList() {
                                     >
                                         Editar
                                     </Button>
-                                </Td>
+                                </Td> */}
                             </Tr>
                             <Tr>
-                                <Td px='6'>
+                                <Td px={['4', '4', '6']}>
                                     <Checkbox
                                         colorScheme="pink"
                                     />
@@ -126,10 +131,10 @@ export default function UserList() {
                                         </Text>
                                     </Box>
                                 </Td>
-                                <Td>
+                                {isWideVersion && (<Td>
                                     04 de Abril 2021
-                                </Td>
-                                <Td>
+                                </Td>)}
+                                {/* <Td>
                                     <Button
                                         as='a'
                                         size='sm'
@@ -139,7 +144,7 @@ export default function UserList() {
                                     >
                                         Editar
                                     </Button>
-                                </Td>
+                                </Td> */}
                             </Tr>
                         </Tbody>
                     </Table>
